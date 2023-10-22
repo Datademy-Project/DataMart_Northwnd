@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/20/2023 12:46:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-AGROAGK"
+  DTS:CreatorName="DESKTOP-AGROAGK\Cristian"
+  DTS:DTSID="{E9C1ADF2-33D6-47C6-A58F-F0D984AE27AE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="LoadCustomer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{E0B2BC44-CD41-4004-805B-D14BEB4DC434}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B5101093-0B1C-4703-B189-D8D4D30B36E6}"
+      DTS:ObjectName="LocalHost.LOAD_NORTHWND">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=LOAD_NORTHWND;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-LoadProduct-{B5101093-0B1C-4703-B189-D8D4D30B36E6}LocalHost.LOAD_NORTHWND;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NORTHWND]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{31916CE1-B094-4E6C-9264-A342BC85D4A1}"
+      DTS:ObjectName="LocalHost.NORTHWND">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NORTHWND;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-LoadProduct-{31916CE1-B094-4E6C-9264-A342BC85D4A1}LocalHost.NORTHWND;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NORTHWND_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0578CD39-F7BF-429B-AE81-6C05F7B2D1FD}"
+      DTS:ObjectName="LocalHost.NORTHWND_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NORTHWND_METADATA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-LoadProduct-{0578CD39-F7BF-429B-AE81-6C05F7B2D1FD}LocalHost.NORTHWND_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7519194-1C6E-4089-B24A-836D9DCA5234}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLCountRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1C88DD1E-1944-4719-AF0F-A4ED40735F10}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecution">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF Load Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A8540176-56F5-48C4-90EF-1D70650ABC41}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Load Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DF Load Customer.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{EC6EE0E7-2310-48E5-8B6D-B0BDDC92B883}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{4B8EFFB4-7FE1-4F85-96D1-7EA57FF3DD4F}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DF Load Customer.EventHandlers[OnPostExecute]\Actualizar ETLCountRows Northwnd_Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{FBDA5E06-EAA0-4DB7-8C99-2A9CAE3A6149}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Actualizar ETLCountRows Northwnd_Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0578CD39-F7BF-429B-AE81-6C05F7B2D1FD}"
+                  SQLTask:SqlStatementSource="UPDATE ETLExecution&#xA;SET ETLCountRows=?&#xA;WHERE ID=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::ETLCountRows"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::ETLExecution"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\DF Load Customer.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{7BDA2A9E-9E5F-4852-A1C2-B3A0C0F5F219}"
+          DTS:EventID="925775150"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{640733A3-9C0A-44AC-8828-DE24BB78909C}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DF Load Customer.EventHandlers[OnPreExecute]\Insertar Datos en Northwnd_Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{6EEAC925-98A5-4DD2-8BB3-CEA803E53752}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insertar Datos en Northwnd_Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0578CD39-F7BF-429B-AE81-6C05F7B2D1FD}"
+                  SQLTask:SqlStatementSource="INSERT INTO ETLExecution(UserName,MachineName,PackageName,ETLLoad)&#xA;    VALUES(?,?,?,GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::UserName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::MachineName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\DF Load Customer.EventHandlers[OnPreExecute]\Obtener ID Northwnd_Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{E73BD9E2-A6A1-4930-A634-EEA044C00497}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Obtener ID Northwnd_Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{0578CD39-F7BF-429B-AE81-6C05F7B2D1FD}"
+                  SQLTask:SqlStatementSource="SELECT TOP(1) ID FROM ETLExecution&#xA;WHERE PackageName=?&#xA;ORDER BY ID DESC"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::ETLExecution" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\DF Load Customer.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+              DTS:CreationName=""
+              DTS:DTSID="{45F536BD-32D5-4CD4-9984-366CE0FD94F9}"
+              DTS:From="Package\DF Load Customer.EventHandlers[OnPreExecute]\Insertar Datos en Northwnd_Metadata"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Restricción"
+              DTS:To="Package\DF Load Customer.EventHandlers[OnPreExecute]\Obtener ID Northwnd_Metadata" />
+          </DTS:PrecedenceConstraints>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Load Customer\Contar Cantidad de Filas"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar Cantidad de Filas">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::ETLCountRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF Load Customer\Contar Cantidad de Filas.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load Customer\Contar Cantidad de Filas.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DF Load Customer\Contar Cantidad de Filas.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load Customer\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF Load Customer\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DF Load Customer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLLoad]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLLoad]"
+                      name="ETLLoad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLExecution]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLExecution]"
+                      name="ETLExecution"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::ETLExecution]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::ETLExecution]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DF Load Customer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load Customer\Load_Northwnd Customer"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Northwnd Customer"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load Customer\Load_Northwnd Customer.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[ETLLoad]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETLLoad"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoad]"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLLoad]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[ETLExecution]"
+                      cachedDataType="i4"
+                      cachedName="ETLExecution"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ETLExecution]"
+                      lineageId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output].Columns[ETLExecution]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[ContactName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactName"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactName]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[ContactTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="ContactTitle"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactTitle]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[Address]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Address"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Address]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].Columns[Fax]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="Fax"
+                      externalMetadataColumnId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Fax]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoad]"
+                      dataType="dbTimeStamp"
+                      name="ETLLoad" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ETLExecution]"
+                      dataType="i4"
+                      name="ETLExecution" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Load Customer\Load_Northwnd Customer.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Load_Northwnd Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Load_Northwnd Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Load_Northwnd Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Load Customer\Northwnd Customer"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Northwnd Customer"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Load Customer\Northwnd Customer.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NORTHWND]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NORTHWND]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      length="30"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      name="ContactName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      length="30"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      name="ContactTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      length="60"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Address]"
+                      name="Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="10"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      length="24"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Fax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      length="24"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].Columns[Fax]"
+                      name="Fax"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      name="ContactName" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      name="ContactTitle" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      name="Address" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      name="Fax" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Load Customer.Paths[Derived Column Output]"
+              endId="Package\DF Load Customer\Contar Cantidad de Filas.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DF Load Customer\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DF Load Customer.Paths[OLE DB Source Output]"
+              endId="Package\DF Load Customer\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF Load Customer\Northwnd Customer.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DF Load Customer.Paths[Row Count Output 1]"
+              endId="Package\DF Load Customer\Load_Northwnd Customer.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DF Load Customer\Contar Cantidad de Filas.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DF Load Customer"
+          TopLeft="333,89" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF Load Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DF Load Customer\Derived Column"
+          TopLeft="299,155" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DF Load Customer\Northwnd Customer"
+          TopLeft="297,71" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\DF Load Customer\Load_Northwnd Customer"
+          TopLeft="275,335" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DF Load Customer\Contar Cantidad de Filas"
+          TopLeft="275,236" />
+        <EdgeLayout
+          Id="Package\DF Load Customer.Paths[Row Count Output 1]"
+          TopLeft="376.75,278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load Customer.Paths[OLE DB Source Output]"
+          TopLeft="381.75,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF Load Customer.Paths[Derived Column Output]"
+          TopLeft="376.5,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DF Load Customer.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="265,42"
+          Id="Package\DF Load Customer.EventHandlers[OnPreExecute]\Insertar Datos en Northwnd_Metadata"
+          TopLeft="230,64" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\DF Load Customer.EventHandlers[OnPreExecute]\Obtener ID Northwnd_Metadata"
+          TopLeft="248,145" />
+        <EdgeLayout
+          Id="Package\DF Load Customer.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+          TopLeft="364,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\DF Load Customer.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="309,42"
+          Id="Package\DF Load Customer.EventHandlers[OnPostExecute]\Actualizar ETLCountRows Northwnd_Metadata"
+          TopLeft="249,107" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load Customer\Northwnd Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Load Customer\Load_Northwnd Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
